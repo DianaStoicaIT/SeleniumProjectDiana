@@ -29,7 +29,6 @@ public class WishlistFlowTests {
     public void setUp() {
         System.out.println("Initialize driver.");
         driver = new ChromeDriver();
-        driver.manage().window().fullscreen();
         registerAccountPage = new RegisterAccountPage(driver);
         wishlistPage = new WishlistPage(driver);
         searchResultPage = new SearchResultPage(driver);
@@ -43,18 +42,19 @@ public class WishlistFlowTests {
     }
     @Test
     public void addItemToWishlist() throws Exception{
-        String expectedResult = "No results!";
         wishlistPage.clickWishlist();
         String actualResult = wishlistPage.getNoResultsElementText();
+        String expectedResult = "No results!";
         Assert.assertEquals(actualResult, expectedResult, "Text from element is not the expected one");
         wishlistPage.enterTextToSearch("Apple Cinema 30'");
         wishlistPage.clickSearchButton();
         Thread.sleep(4000);
         Actions action = new Actions(driver);
-        action.moveToElement(searchResultPage.getFirstItem()).build().perform();
+        action.moveToElement(searchResultPage.getFirstItem()).perform();
         searchResultPage.addFirstItemToWishlist();
         searchResultPage.clickClosePopupButton();
-       int noOfItems =  wishlistPage.getWishlistItems().size();
+       searchResultPage.clickWishlist();
+       int noOfItems = wishlistPage.getWishlistItems().size();
        Assert.assertTrue(noOfItems == 1, "Wishlist is empty");
         wishlistPage.clickRemoveItemFromWishlistButton();
         actualResult = wishlistPage.getNoResultsElementText();

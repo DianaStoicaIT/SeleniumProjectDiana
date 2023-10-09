@@ -19,11 +19,12 @@ public class RegisterAccountPage extends BasePage {
     private By passwordConfirmInput = By.id("input-confirm");
     private By privacyPolicyCheckbox = By.xpath("//label[@for='input-agree']");
     private By continueButton = By.xpath("//input[@value='Continue']");
-    private By firstNameErrorElement = By.xpath(".//input[@name='firstname' ]/following-sibling:div");
-    private By lastNameErrorElement = By.xpath(".//input[@name='lastname' ]/following-sibling:div");
-    private By emailErrorElement = By.xpath(".//input[@name='email' ]/following-sibling:div");
-    private By telephoneNumberErrorElement = By.id(".//div[@class = 'alert alert-danger alert-dismissible']");
-    private By passwordErrorElement = By.id("input-password");
+    private By registerAccountMandatoryFields = By.xpath("//div[@id='content']p[1]");
+    private By firstNameErrorElement = By.xpath(".//div[@class = 'text-danger']");
+    private By lastNameErrorElement = By.xpath(".//div[@class = 'text-danger']");
+    private By emailErrorElement = By.xpath(".//div[@class = 'text-danger']");
+    private By telephoneNumberErrorElement = By.xpath(".//div[@class = 'text-danger']");
+    private By passwordErrorElement = By.xpath(".//div[@class = 'text-danger']");
     private By passwordConfirmErrorElement = By.xpath(".//div[@class = 'text-danger']");
 
 
@@ -57,6 +58,10 @@ public class RegisterAccountPage extends BasePage {
 
     public void clickContinue() {
         driver.findElement(continueButton).click();
+    }
+
+    public void setRegisterAccountMandatoryFields(){
+        driver.findElement((By) driver.findElement(registerAccountMandatoryFields)).click();
     }
 
     public String getFirstNameErrorMessage() {
