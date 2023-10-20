@@ -21,12 +21,10 @@ public class WishlistPage extends org.example.BasePage {
         private By itemsTableRow = By.xpath(".//table[@class = 'table table-hover border']/tbody/tr'");
         private By removeItemFromWishlist = By.xpath(".//a[@data-original-title = 'Remove']");
 
-       public String getNoResultsElementText() {
-           return driver.findElement(noResultsElement).getText();}
-    public void clickSearchButton(){
+       public String getNoResultsElementText() {return driver.findElement(noResultsElement).getText();}
+        public void clickSearchButton(){
            driver.findElement(searchButton).click();
     }
-
         public List<WebElement> getWishlistItems() {
            return driver.findElements(itemsTableRow);
         }

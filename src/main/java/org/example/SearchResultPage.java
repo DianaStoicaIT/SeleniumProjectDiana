@@ -18,15 +18,12 @@ public class SearchResultPage extends org.example.BasePage {
     public void clickFirstItem() {
         driver.findElements(resultItems).get(0).click();
     }
-
-
     public WebElement getFirstItem() {
         return driver.findElements(resultItems).get(0);
     }
 
     public void addFirstItemToWishlist(){
         driver.findElements(addToWishlistButton).get(0).click();
-
     }
     public void clickClosePopupButton(){
         driver.findElement(closePopUpButton).click();

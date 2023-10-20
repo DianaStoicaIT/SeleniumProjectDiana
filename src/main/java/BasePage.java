@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BasePage {
-  public WebDriver driver;
+  public static WebDriver driver;
   private By errorMessage = By.xpath(".//div[@class = 'alert alert-danger alert-dismissible']");
   private By wishlistHeartElement = By.xpath(".//a[@aria-label = Wishlist']");
   private By searchInput = By.name("search");

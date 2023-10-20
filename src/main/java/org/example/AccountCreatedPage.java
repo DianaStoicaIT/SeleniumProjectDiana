@@ -1,3 +1,5 @@
+package org.example;
+
 import org.example.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

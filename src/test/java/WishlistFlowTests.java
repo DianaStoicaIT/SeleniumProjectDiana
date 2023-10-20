@@ -1,5 +1,3 @@
-package Util;
-
 import org.example.RegisterAccountPage;
 import org.example.SearchResultPage;
 import org.example.WishlistPage;
