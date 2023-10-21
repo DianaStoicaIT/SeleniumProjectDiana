@@ -1,8 +1,4 @@
 package org.example;
-
-import org.example.BasePage;
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class RegisterAccountPage extends BasePage {
@@ -25,7 +21,7 @@ public class RegisterAccountPage extends BasePage {
     private By emailErrorElement = By.xpath(".//div[@class = 'text-danger']");
     private By telephoneNumberErrorElement = By.xpath(".//div[@class = 'text-danger']");
     private By passwordErrorElement = By.xpath(".//div[@class = 'text-danger']");
-    private By passwordConfirmErrorElement = By.xpath(".//div[@class = 'text-danger']");
+    private By confirmPasswordErrorElement = By.xpath("//input[@name= 'confirm']/following-sibling::div");
 
 
     public void insertFirstName(String firstName) {
@@ -60,7 +56,7 @@ public class RegisterAccountPage extends BasePage {
         driver.findElement(continueButton).click();
     }
 
-    public void setRegisterAccountMandatoryFields(){
+    public void setRegisterAccountMandatoryFields() {
         driver.findElement((By) driver.findElement(registerAccountMandatoryFields)).click();
     }
 
@@ -77,15 +73,17 @@ public class RegisterAccountPage extends BasePage {
     }
 
     public String getTelephoneNumberErrorMessage() {
-       return driver.findElement(telephoneNumberErrorElement).getText();
+        return driver.findElement(telephoneNumberErrorElement).getText();
+    }
 
-    }
-    public String getPasswordErrorMessage(){
-        return driver.findElement(passwordErrorElement).getText();
-    }
-    public String getPasswordConfirmErrorMessage(){
+    public String getPasswordConfirmErrorMessage() {
         return driver.findElement((passwordErrorElement)).getText();
     }
 
-
+    public String getConfirmationPasswordErrorMessage() {
+        return driver.findElement(confirmPasswordErrorElement).getText();
+    }
 }
+
+
+
